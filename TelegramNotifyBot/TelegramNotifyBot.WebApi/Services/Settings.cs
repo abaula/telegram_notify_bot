@@ -13,6 +13,7 @@ namespace TelegramNotifyBot.WebApi.Services
         {
             ApiKey = configuration[AppConst.Settings.TelegramApiKey];
             ChatId = Convert.ToInt32(configuration[AppConst.Settings.TelegramChatId]);
+            DefaultEmaji = configuration[AppConst.Settings.TelegramDefaultEmaji];
             ValidSenders = configuration.GetSection(AppConst.Settings.ValidSenders)
                 .GetChildren()
                 .Select(s => new ValidSenderDto
@@ -25,6 +26,7 @@ namespace TelegramNotifyBot.WebApi.Services
 
         public string ApiKey { get; }
         public int ChatId { get; }
+        public string DefaultEmaji { get; }
         public ValidSenderDto[] ValidSenders { get; }
     }
 }

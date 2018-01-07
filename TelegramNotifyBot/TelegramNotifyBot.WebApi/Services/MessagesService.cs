@@ -1,11 +1,9 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Security;
 using System.Threading.Tasks;
 using TelegramNotifyBot.WebApi.Model;
 using TelegramNotifyBot.WebApi.Services.Abstractions;
 using Telegram.Bot;
-using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 
 namespace TelegramNotifyBot.WebApi.Services
@@ -38,15 +36,13 @@ namespace TelegramNotifyBot.WebApi.Services
         private string FormatMessage(MessageDto message)
         {
             var sender = _settings.ValidSenders.Single(s => s.Id == message.SenderId);
-            //var emoji = "\U0001F680";
-            var m = $"```\r\n{GetEmoji(message)}<{sender.Name}>:```{message.Message}{GetUrl(message)}";
-            return m;
+            return $"```\r\n{GetEmoji(message)}<{sender.Name}>:```{message.Message}{GetUrl(message)}";
         }
 
         private string GetEmoji(MessageDto message)
         {
             if (string.IsNullOrEmpty(message.Emoji))
-                return ParseEmpjiString("U+1F47D");
+                return ParseEmpjiString(_settings.DefaultEmaji);
 
             return ParseEmpjiString(message.Emoji);
         }

@@ -6,6 +6,7 @@ namespace TelegramNotifyBot.WebApi.Services.Abstractions
     {
         string ApiKey { get; }
         int ChatId { get; }
+        string DefaultEmaji { get; }
         ValidSenderDto[] ValidSenders { get; }
     }
 }
