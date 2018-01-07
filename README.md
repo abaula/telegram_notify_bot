@@ -3,6 +3,7 @@
 
 ## Формат REST сообщения
 **POST** /messages
+
     {
       "senderId": "E70CBB51-A794-45AA-99C8-41502B2AB84E",
       "message": "Сообщение от бота...",
