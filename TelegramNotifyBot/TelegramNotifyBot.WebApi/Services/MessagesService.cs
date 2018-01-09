@@ -42,12 +42,12 @@ namespace TelegramNotifyBot.WebApi.Services
         private string GetEmoji(MessageDto message)
         {
             if (string.IsNullOrEmpty(message.Emoji))
-                return ParseEmpjiString(_settings.DefaultEmaji);
+                return ParseEmojiString(_settings.DefaultEmoji);
 
-            return ParseEmpjiString(message.Emoji);
+            return ParseEmojiString(message.Emoji);
         }
 
-        private string ParseEmpjiString(string emoji)
+        private string ParseEmojiString(string emoji)
         {
             //Beginn at position 2 to skip the "U+" prefix
             var codePoint = int.Parse(emoji.Substring(2), System.Globalization.NumberStyles.HexNumber);
